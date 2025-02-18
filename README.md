@@ -1,6 +1,6 @@
 # hexsplit
 
-**Author:** *Shreya Seshadri*
+
 
 ## Overview
 
