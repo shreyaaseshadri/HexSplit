@@ -21,6 +21,8 @@ hexsplit contains a directory named scripts and a wrapper file names integration
 An example of running integration_file.py may look like:
 python integration_file.py -ff /path/to/sequence_alignment_file -rxml_loc /path/to/raxmlHPC-PTHREADS -fn name_of_folder_to_be_created -nbs 3 -nthds 6
 
+Running integration_file.py will create a new directory (with a user given name) to store all created files including windows, ML trees, and bootstrap trees. 
+
 ### Parameters
 * -msa, --multiple_sequence_alignment : Path to the multiple sequence alignment file to be tested.
 * -rxml_loc, --raxml_location : Path to where RAxML Pthreads is stored on the user's local machine.
