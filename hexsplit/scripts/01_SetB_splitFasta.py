@@ -57,4 +57,4 @@ with open(window1,'w') as w1, open(window2,'w') as w2, open(window3,'w') as w3:
         w3.write(id+"\n")
         w3.write(s3+"\n")
 
-print('Set B generated')
+#print('Set B generated')
