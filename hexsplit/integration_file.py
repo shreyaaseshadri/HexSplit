@@ -296,18 +296,18 @@ def hist_intersection_test(threshold, folder_name):
 
 if __name__ == '__main__': 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-ff", "--fasta_file", type=str, required=True, help="Location of the fasta file to be tested")
+    parser.add_argument("-msa", "--multiple_sequence_alignment", type=str, required=True, help="Location of the file to be tested")
     parser.add_argument("-rxml_loc", "--raxml_location", type=str, required=True, help="Where RAxML is stored on your machine - ensure pthreads is enabled")
     parser.add_argument("-fn", "--folder_name", type=str, required=True, help="Name of folder containing all created files")
     parser.add_argument("-m", "--model", type=str, required=False, help="RAxML model to be used - default is GTRCAT", default='GTRCAT')
     parser.add_argument("-nbs", "--num_bootstrap", type=int, required=False, help="Number of bootstrap trees to be created - default is 10", default=10)
     parser.add_argument("-thresh", "--threshold", type=int, required=False, help="Threshold for histogram intersection test - default is 0.5", default=0.5)
-    parser.add_argument("-nthds", "--num_pthreads", type=int, required=False, help="Number of pthreads to be used - default is 1", default=1)
+    parser.add_argument("-nthds", "--num_pthreads", type=int, required=False, help="Number of threads to be used - default is 2", default=2)
 
 
     args = parser.parse_args()
 
-    fasta_file=args.fasta_file
+    fasta_file=args.multiple_sequence_alignment
     raxml_location = args.raxml_location
     model = args.model
     num_bootstrap = args.num_bootstrap
