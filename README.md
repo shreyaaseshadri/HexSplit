@@ -9,7 +9,7 @@ Python 3
   - DendroPy
   - Scipy
   - Numpy
-- RAxML 8.2.11 (Sequential Version)
+RAxML 8.2.11 (Sequential Version)
 
 ## Usage
 
