@@ -1,5 +1,5 @@
 '''
-This is the wrapper script that runs the 4 steps included in the hexsplit algorithm on a single fasta file specified by the user. 
+This wrapper script runs the 4 steps included in the hexsplit algorithm on a input file specified by the user. 
 '''
 
 #import modules
@@ -100,7 +100,7 @@ def create_windows(fasta_file, folder_name):
     if os.path.exists(folder_name + os.path.sep + "windows" + os.path.sep + "setB"): 
         subprocess.run([python_exe, setB_script, fasta_file, setB_window_dir], check=True)
 
-def create_rxml_genetrees(raxml_location, model, num_pthreads, folder_name): 
+def create_rxml_genetrees(raxml_location, model, folder_name): 
     #Create Raxml Gene Trees
   
     model = model
@@ -126,7 +126,7 @@ def create_rxml_genetrees(raxml_location, model, num_pthreads, folder_name):
         #print("I am here:")
         #print(os.getcwd())
 
-        run_rxmlgt_setA = subprocess.run([raxml_location,'-T', str(num_pthreads),'-f', 'a','-p', '13579','-N', '9','-m', model,'-x', '12345','-s', absolute_w,'-n', window], capture_output=True, text=True)
+        run_rxmlgt_setA = subprocess.run([raxml_location,'-f', 'a','-p', '13579','-N', '9','-m', model,'-x', '12345','-s', absolute_w,'-n', window], capture_output=True, text=True)
         if run_rxmlgt_setA.returncode == 0: 
             pass
         else: 
@@ -155,7 +155,7 @@ def create_rxml_genetrees(raxml_location, model, num_pthreads, folder_name):
         #print("I am here:")
         #print(os.getcwd())
 
-        run_rxmlgt_setB = subprocess.run([raxml_location,'-T', str(num_pthreads),'-f', 'a','-p', '13579','-N', '9','-m', model,'-x', '12345','-s', absolute_w,'-n', window], capture_output=True, text=True)
+        run_rxmlgt_setB = subprocess.run([raxml_location,'-f', 'a','-p', '13579','-N', '9','-m', model,'-x', '12345','-s', absolute_w,'-n', window], capture_output=True, text=True)
         if run_rxmlgt_setB.returncode == 0: 
             pass
         else: 
@@ -170,7 +170,7 @@ def create_rxml_genetrees(raxml_location, model, num_pthreads, folder_name):
     else: 
         return(False)
 
-def create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, num_pthreads, folder_name):
+def create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, folder_name):
     #Create Raxml Bootstrap Trees
   
     model = model
@@ -199,7 +199,7 @@ def create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, num_pthrea
         #print("I am here:")
         #print(os.getcwd())
 
-        run_rxmlbs_setA = subprocess.run([raxml_location,'-T', str(num_pthreads),'-b', '12345', '-p', '13579', '-#', str(num_bootstrap), '-m', model, '-s', absolute_w, '-n', window], capture_output=True, text=True)
+        run_rxmlbs_setA = subprocess.run([raxml_location,'-b', '12345', '-p', '13579', '-#', str(num_bootstrap), '-m', model, '-s', absolute_w, '-n', window], capture_output=True, text=True)
         if run_rxmlbs_setA.returncode == 0: 
             pass
         else: 
@@ -250,7 +250,7 @@ def create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, num_pthrea
         #print("I am here:")
         #print(os.getcwd())
 
-        run_rxmlbs_setB = subprocess.run([raxml_location,'-T', str(num_pthreads),'-b', '12345', '-p', '13579', '-#', str(num_bootstrap), '-m', model, '-s', absolute_w, '-n', window], capture_output=True, text=True)
+        run_rxmlbs_setB = subprocess.run([raxml_location,'-b', '12345', '-p', '13579', '-#', str(num_bootstrap), '-m', model, '-s', absolute_w, '-n', window], capture_output=True, text=True)
         if run_rxmlbs_setB.returncode == 0: 
             pass
         else: 
@@ -297,12 +297,11 @@ def hist_intersection_test(threshold, folder_name):
 if __name__ == '__main__': 
     parser = argparse.ArgumentParser()
     parser.add_argument("-msa", "--multiple_sequence_alignment", type=str, required=True, help="Location of the file to be tested")
-    parser.add_argument("-rxml_loc", "--raxml_location", type=str, required=True, help="Where RAxML is stored on your machine - ensure pthreads is enabled")
+    parser.add_argument("-rxml_loc", "--raxml_location", type=str, required=False, help="Where RAxML (Sequential Version) is stored on your machine")
     parser.add_argument("-fn", "--folder_name", type=str, required=True, help="Name of folder containing all created files")
     parser.add_argument("-m", "--model", type=str, required=False, help="RAxML model to be used - default is GTRCAT", default='GTRCAT')
     parser.add_argument("-nbs", "--num_bootstrap", type=int, required=False, help="Number of bootstrap trees to be created - default is 10", default=10)
-    parser.add_argument("-thresh", "--threshold", type=int, required=False, help="Threshold for histogram intersection test - default is 0.5", default=0.5)
-    parser.add_argument("-nthds", "--num_pthreads", type=int, required=False, help="Number of threads to be used - default is 2", default=2)
+    parser.add_argument("-thresh", "--threshold", type=float, required=False, help="Threshold for histogram intersection test - default is 0.5", default=0.5)
 
 
     args = parser.parse_args()
@@ -312,7 +311,6 @@ if __name__ == '__main__':
     model = args.model
     num_bootstrap = args.num_bootstrap
     threshold = args.threshold
-    num_pthreads = args.num_pthreads
     folder_name = args.folder_name
 
     #Create Set A and Set B
@@ -321,7 +319,7 @@ if __name__ == '__main__':
 
     #Create RAxML Gene Trees from Set A and Set B
     make_rxmlgt_dirs(folder_name)
-    rxml_genetrees = create_rxml_genetrees(raxml_location, model, num_pthreads, folder_name)
+    rxml_genetrees = create_rxml_genetrees(raxml_location, model, folder_name)
     if rxml_genetrees == True: 
         print('RAxML Gene Trees Successfully Created')
     else: 
@@ -330,7 +328,7 @@ if __name__ == '__main__':
 
     #Create RAxML Bootstrap Trees from Set A and Set B
     make_rxmlbs_dirs(folder_name)
-    rxml_bootstraptrees = create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, num_pthreads, folder_name)
+    rxml_bootstraptrees = create_rxml_bootstrap_trees(raxml_location, model, num_bootstrap, folder_name)
     if rxml_bootstraptrees == True: 
         print('{} RAxML Bootstrap Trees Successfully Created'.format(num_bootstrap))
     else: 
