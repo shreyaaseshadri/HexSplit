@@ -77,7 +77,7 @@ RAxML Gene Trees Successfully Created - update for the user
 100 RAxML Bootstrap Trees Successfully Created - update for the user
 
 Regular windows - below information is for regular tripartition windows
-Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 - pairwise RF scores between ML trees generated from the 3 partitions
+Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 - pairwise RF scores between ML trees generated from the 3 partitions \n
 Regular windows histogram intersection test result: 0.59 - result of the statistical analysis, a value less than the threshold indicates the presence of PGT
 
 Offset windows - below information is for tripartition windows created with an offset
