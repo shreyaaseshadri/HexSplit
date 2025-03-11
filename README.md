@@ -37,7 +37,7 @@ Below is a list of parameters hexsplit supports. Please note the required parame
 * -thresh, --threshold : Threshold used in histogram intersection test. Default: 0.5
 
 ### Provided Testing Samples
-We have provided 4 testing sample fasta files.
+We have provided 4 sample fasta files.
   1. noPGT_large.fa - No PGT, contains 229 gene sequences
   2. noPGT_short.fa - No PGT, contains 15 gene sequences (a subset of noPGT_large.fa)
   3. PGT_large.fa - PGT, contains 229 gene sequences
