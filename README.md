@@ -5,11 +5,11 @@
 Hexsplit is an implementation of a simple proof-of-concept approach to detecting the presence of partial gene transfer (PGT) (i.e., horizontal transfer of a fragment of a gene) in a given gene family. hexsplit takes as input a multiple sequence alignment for the gene family under consideration, creates 2 sets of roughly equal tri-partitioned windows (regular and offset), computes maximum likelihood (ML) trees and bootstrap replicates for each window, and compares these windows and sets through statistical analysis to determine if that gene family has been affected by significant partial gene transfer. hexsplit can be used to easily identify gene families whose gene trees may have been impacted by the presence of significant partial gene transfer.
 
 ## Dependencies
-Python 3
+- Python 3
   - DendroPy
   - Scipy
   - Numpy
-RAxML 8.2.11 (Sequential Version)
+- RAxML 8.2.11 (Sequential Version)
 
 ## Usage
 
