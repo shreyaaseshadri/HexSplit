@@ -21,7 +21,9 @@ hexsplit contains
 hexsplit will create new directories and sub-directories to store the tripartion and RAxML files and output the final result in the terminal. The user must specify the name of the main directory. An example is provided in the Example section of this document. 
 
 ### Input
-hexsplit is designed to take in a gene family multiple sequence alignment as input. We have provided 4 fasta files as examples of appropriate inputs. More information can be found in the Provided Testing Samples of this document. Additionally, hexsplit requires the location of RAxML on your machine. Please download RAxML before downloading hexsplit. More information on downloading and compiling RAxML can be found here: https://cme.h-its.org/exelixis/resource/download/NewManual.pdf . RAxML's github repo can be found here: https://github.com/stamatak/standard-RAxML . Note: hexsplit is designed for the sequential version of RAxML. 
+hexsplit is designed to take in a gene family multiple sequence alignment as input. We have provided 4 fasta files as examples of appropriate inputs. More information can be found in the Provided Testing Samples of this document. 
+
+hexsplit requires the location of RAxML on your machine. Please download RAxML before downloading hexsplit. More information on downloading and compiling RAxML can be found here: https://cme.h-its.org/exelixis/resource/download/NewManual.pdf . RAxML's github repo can be found here: https://github.com/stamatak/standard-RAxML . Note: hexsplit is designed for the sequential version of RAxML. 
 
 Below is a list of parameters hexsplit supports. Please note the required parameters and pass in complete paths to files: 
   1. Multiple Sequence Alignment
