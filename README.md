@@ -73,16 +73,16 @@ Offset windows histogram intersection test result 0.83
 PGT not detected
 
 ##### Meaning: 
-RAxML Gene Trees Successfully Created - update for the user  
-100 RAxML Bootstrap Trees Successfully Created - update for the user  
+RAxML Gene Trees Successfully Created (update for the user)  
+100 RAxML Bootstrap Trees Successfully Created (update for the user)  
 
-Regular windows - below information is for regular tripartition windows  
-Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 - pairwise RF scores between ML trees generated from the 3 partitions  
-Regular windows histogram intersection test result: 0.59 - result of the statistical analysis, a value less than the threshold indicates the presence of PGT  
+Regular windows (below information is for regular tripartition windows)  
+Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 (pairwise RF scores between ML trees generated from the 3 partitions)  
+Regular windows histogram intersection test result: 0.59 (result of the statistical analysis, a value less than the threshold indicates the presence of PGT)  
 
-Offset windows - below information is for tripartition windows created with an offset  
-Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 - pairwise RF scores between ML trees generated from the 3 partitions  
-Offset windows histogram intersection test result 0.83 - result of the statistical analysis, a value less than the threshold indicates the presence of PGT
+Offset windows (below information is for tripartition windows created with an offset)  
+Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 (pairwise RF scores between ML trees generated from the 3 partitions)  
+Offset windows histogram intersection test result 0.83 (result of the statistical analysis, a value less than the threshold indicates the presence of PGT)
 
 PGT not detected - final result
 
