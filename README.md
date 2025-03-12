@@ -59,15 +59,15 @@ These files were each tested with the GTRCAT model, 100 bootstrap trees, and a t
 python3 integration_file.py -msa /Users/shrey/Documents/test_files/noPGT_short.fa -rxml_loc /Users/shrey/standard-RAxML/raxmlHPC-AVX -fn noPGT_short -m GTRGAMMA -nbs 100 -thresh 0.5
 
 ##### Output: 
-RAxML Gene Trees Successfully Created
+RAxML Gene Trees Successfully Created  
 100 RAxML Bootstrap Trees Successfully Created
 
 Regular windows 
-Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2
+Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2  
 Regular windows histogram intersection test result: 0.59
 
 Offset windows 
-Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2
+Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2  
 Offset windows histogram intersection test result 0.83
 
 PGT not detected
