@@ -84,5 +84,5 @@ Offset windows (below information is for tripartition windows created with an of
 Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 (pairwise RF scores between ML trees generated from the 3 partitions)  
 Offset windows histogram intersection test result 0.83 (result of the statistical analysis, a value less than the threshold indicates the presence of PGT)
 
-PGT not detected - final result
+PGT not detected (final result)
 
