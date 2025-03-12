@@ -53,12 +53,12 @@ These files were each tested with the GTRCAT model, 100 bootstrap trees, and a t
   3. Ensure your multiple sequence alignment is accessible
   4. Run wrapper script from the terminal - an example is provided below
 
-#### Example
+### Example
 
-##### Input: 
+#### Input: 
 python3 integration_file.py -msa /Users/shrey/Documents/test_files/noPGT_short.fa -rxml_loc /Users/shrey/standard-RAxML/raxmlHPC-AVX -fn noPGT_short -m GTRGAMMA -nbs 100 -thresh 0.5
 
-##### Output: 
+#### Output: 
 RAxML Gene Trees Successfully Created  
 100 RAxML Bootstrap Trees Successfully Created
 
@@ -72,7 +72,7 @@ Offset windows histogram intersection test result 0.83
 
 PGT not detected
 
-##### Meaning: 
+#### Meaning: 
 RAxML Gene Trees Successfully Created (update for the user)  
 100 RAxML Bootstrap Trees Successfully Created (update for the user)  
 
