@@ -49,7 +49,7 @@ These files were each tested with the GTRCAT model, 100 bootstrap trees, and a t
 
 ### Running Software
   1. Download the zip
-  2. cd into the hexsplit directory (cd hexsplit)
+  2. cd into the hexsplit directory (cd hexsplit-main, cd hexsplit)
   3. Ensure your multiple sequence alignment is accessible
   4. Ensure dendropy is installed
   5. Run wrapper script from the terminal - an example is provided below
