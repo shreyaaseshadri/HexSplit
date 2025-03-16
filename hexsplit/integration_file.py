@@ -300,7 +300,7 @@ if __name__ == '__main__':
     parser.add_argument("-rxml_loc", "--raxml_location", type=str, required=False, help="Where RAxML (Sequential Version) is stored on your machine")
     parser.add_argument("-fn", "--folder_name", type=str, required=True, help="Name of folder containing all created files")
     parser.add_argument("-m", "--model", type=str, required=False, help="RAxML model to be used - default is GTRCAT", default='GTRCAT')
-    parser.add_argument("-nbs", "--num_bootstrap", type=int, required=False, help="Number of bootstrap trees to be created - default is 10", default=10)
+    parser.add_argument("-nbs", "--num_bootstrap", type=int, required=False, help="Number of bootstrap trees to be created - default is 100", default=100)
     parser.add_argument("-thresh", "--threshold", type=float, required=False, help="Threshold for histogram intersection test - default is 0.5", default=0.5)
 
 
