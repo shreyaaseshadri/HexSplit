@@ -2,14 +2,16 @@
 
 ## Overview and Description of Software
 
-Hexsplit is an implementation of a simple proof-of-concept approach to detecting the presence of partial gene transfer (PGT) (i.e., horizontal transfer of a fragment of a gene) in a given gene family. hexsplit takes as input a multiple sequence alignment for the gene family under consideration, creates 2 sets of roughly equal tri-partitioned windows (regular and offset), computes maximum likelihood (ML) trees and bootstrap replicates for each window, and compares these windows and sets through statistical analysis to determine if that gene family has been affected by significant partial gene transfer. hexsplit can be used to easily identify gene families whose gene trees may have been impacted by the presence of significant partial gene transfer.
+Hexsplit implements a simple proof-of-concept approach to detecting the presence of partial gene transfer (PGT) (i.e., horizontal transfer of a fragment of a gene) in a given gene family. hexsplit takes as input a multiple sequence alignment for the gene family under consideration, creates 2 sets of roughly equal tri-partitioned windows (regular and offset), computes maximum likelihood (ML) trees and bootstrap replicates for each window, and compares these windows and sets through statistical analysis to determine if that gene family has been affected by significant partial gene transfer. hexsplit can be used to easily identify gene families whose gene trees may have been impacted by the presence of significant partial gene transfer.
+
+hexsplit builds upon the existing algorithm [trippd](https://github.com/suz11001/Tripartition). trippd creates and analyzes 3 windows to determine the presence of PGT. Testing trippd revealed a decrease in performance metrics when the PGT location is varied in the alignment. To address this, hexsplit creates and analyzes a second set of windows with an offset of 1/3, referred to as the offset windows. This increases sensitivity at the potential cost of specificity. 
 
 ## Dependencies
 - Python 3
   - DendroPy
   - Scipy
   - Numpy
-- RAxML 8.2.11 (Sequential Version)
+- RAxML 8.2.11
 
 ## Usage
 
@@ -21,9 +23,9 @@ hexsplit contains
 hexsplit will create new directories and sub-directories to store the tripartion and RAxML files and output the final result in the terminal. The user must specify the name of the main directory. An example is provided in the Example section of this document. 
 
 ### Input
-hexsplit is designed to take in a gene family multiple sequence alignment as input. We have provided 4 fasta files as examples of appropriate inputs. More information can be found in the Provided Testing Samples of this document. 
+hexsplit takes in a multiple sequence alignment. We have provided 4 fasta files as examples of appropriate inputs. More information can be found in the Provided Testing Samples of this document. 
 
-hexsplit requires the location of RAxML on your machine. Please download RAxML before downloading hexsplit. More information on downloading and compiling RAxML can be found here: https://cme.h-its.org/exelixis/resource/download/NewManual.pdf . RAxML's github repo can be found here: https://github.com/stamatak/standard-RAxML . Note: hexsplit is designed for the sequential version of RAxML. 
+hexsplit requires the location of RAxML on your machine. Please download and compile [RAxML](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf) before using hexsplit. RAxML's github repo can be found [here](https://github.com/stamatak/standard-RAxML). Note: the current version of hexsplit is designed for the sequential version of RAxML. However, the source code is available to modify and make compatible with other versions of RAxML.  
 
 Below is a list of parameters hexsplit supports. Please note the required parameters and pass in complete paths to files: 
   1. Multiple Sequence Alignment
@@ -35,7 +37,7 @@ Below is a list of parameters hexsplit supports. Please note the required parame
 * -rxml_loc, --raxml_location : Path to where RAxML is stored on the user's local machine.
 * -fn, --folder_name : User specified name to store created files (tripartitions, maximum likelihood and bootstrap trees).
 * -m, --model : RAxML model to be used. Default: GTRCAT
-* -nbs, --num_bootstrap : Number of bootstrap trees to be created. Default: 10
+* -nbs, --num_bootstrap : Number of bootstrap trees to be created. Default: 100
 * -thresh, --threshold : Threshold used in histogram intersection test. Default: 0.5
 
 ### Provided Testing Samples
@@ -73,7 +75,7 @@ Offset windows histogram intersection test result 0.83
 
 PGT not detected
 
-#### Meaning: 
+#### Interpreting the Output: 
 RAxML Gene Trees Successfully Created (update for the user)  
 100 RAxML Bootstrap Trees Successfully Created (update for the user)  
 
@@ -81,7 +83,7 @@ Regular windows (below information is for regular tripartition windows)
 Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 (pairwise RF scores between ML trees generated from the 3 partitions)  
 Regular windows histogram intersection test result: 0.59 (result of the statistical analysis, a value less than the threshold indicates the presence of PGT)  
 
-Offset windows (below information is for tripartition windows created with an offset)  
+Offset windows (below information is for windows created with a 1/3 offset)  
 Pairwise ML Tree RF scores -> w1w2: 2, w2w3: 2, w1w3: 2 (pairwise RF scores between ML trees generated from the 3 partitions)  
 Offset windows histogram intersection test result 0.83 (result of the statistical analysis, a value less than the threshold indicates the presence of PGT)
 
