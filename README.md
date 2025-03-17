@@ -6,7 +6,6 @@ HexSplit implements a simple proof-of-concept approach to detecting the presence
 
 HexSplit builds upon the existing method [trippd](https://github.com/suz11001/Tripartition), which analyzes 3 windows to determine the presence of PGT. HexSplit improves upon the sensitivity of trippd, especially on gene famiilies affected by multiple PGTs and on gene families where PGT has impacted the middle portions of gene sequences. Further methodological details on HexSplit appear in the associated manuscript (see below for citation).
 
-HexSplit 
 
 ## Dependencies
 - Python 3
