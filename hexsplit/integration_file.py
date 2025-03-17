@@ -21,6 +21,9 @@ import subprocess, argparse, os, sys, glob
 def make_window_dirs(folder_name): 
     if not os.path.exists(folder_name): 
         os.mkdir(folder_name)
+    else:
+        print('A directory with the same name already exists. Please specify a new folder name and rerun')
+        exit()
 
     # window directories
     if not os.path.exists(folder_name + os.path.sep + "windows"): 
