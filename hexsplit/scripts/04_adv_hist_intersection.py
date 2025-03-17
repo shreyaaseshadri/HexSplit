@@ -9,7 +9,7 @@ import scipy.stats as st
 import dendropy
 from dendropy import Tree
 from dendropy.calculate import treecompare
-import seaborn as sns
+#import seaborn as sns
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 
