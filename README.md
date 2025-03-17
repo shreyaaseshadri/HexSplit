@@ -52,10 +52,10 @@ We have provided 4 sample fasta files.
 These files were each tested with the GTRCAT model, 100 bootstrap trees, and a threshold value of 0.5 on a 2020 Macbook Pro M1. The short files ran in ~2 minutes while the larger files took between 2 and 4 hours to complete. The number of bootstraps plays a key role in runtime. 
 
 ### Running the Software
-  1. Download the zip
+  1. Download HexSplit
   2. cd into the hexsplit directory (cd hexsplit-main, cd hexsplit)
-  3. Ensure your multiple sequence alignment is accessible
-  4. Ensure dendropy is installed
+  3. Ensure your multiple sequence alignment file is accessible
+  4. Ensure dendropy is installed and RAxML executable is present
   5. Run wrapper script from the terminal - an example is provided below
 
 ### Example
